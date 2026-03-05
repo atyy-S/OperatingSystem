@@ -1,4 +1,4 @@
-#include "libFS.h"
+#include "Aty_libFS.h"
 
 //global vars
 FileEntry file_table [MAX_FILES]; //file table to track files
@@ -23,7 +23,7 @@ int fileCreate(const char *filename){
     // clear file contents
     memset(file_data[file_count], 0, MAX_FILESIZE);
     file_count++;
-    printf("Yeyyy🥳🥳... file '%s' is created successfully, now dance", filename);
+    printf("Yeyyy🥳🥳... file '%s' is created successfully, now dance \n", filename);
     return 0;
 }        
       
@@ -39,7 +39,7 @@ int fileOpen(const char *filename){
             }
 
             file_table[i].is_open=1; //mark file is open
-            printf("File '%s' is open successfilly 🥳🥳", filename);
+            printf("File '%s' is open successfilly 🥳🥳\n", filename);
             return i; //file index
         }
     }
@@ -80,7 +80,7 @@ int fileRead (int file_index, char *buffer, int buffer_size){
 
     //check if file is open
     if (!file_table[file_index].is_open) {
-        printf("ERROOORR👻File is not open.\n", "don't ask me why🥲✌️ \n");
+        printf("ERROOORR👻File is not open.\n");
         return -1;
     }
 
@@ -115,8 +115,8 @@ int fileClose(int file_index){
     return 0;
 }
 
-//delate file
-int fileDelate(const char *filename){
+//delete file
+int fileDelete(const char *filename){
      for (int i = 0; i < file_count; i++) {
         if (strcmp(file_table[i].filename, filename) == 0) {
             // shift all files left
