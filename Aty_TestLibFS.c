@@ -44,7 +44,7 @@ int main() {
                 getchar();
                 fgets(buffer, sizeof(buffer), stdin);
                 fileWrite(index, buffer);
-                fileClose(index);   // required by assignment
+                fileClose(index);   
                 index = -1;
                 break;
 
